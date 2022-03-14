@@ -1,5 +1,5 @@
   async function getQuotes(){
-    let quotes = await fetch('https://api.adviceslip.com/advice').then(res => res.json())
+    let quotes = await (await fetch('https://api.adviceslip.com/advice')).json()
     let advice = await quotes.slip.advice;
     let adviceId = await quotes.slip.id;
     document.getElementById('quote').innerHTML = `<q>${advice}</q>`;
